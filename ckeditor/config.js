@@ -5,11 +5,12 @@
 
 CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here. For example:
-	 config.language = 'uk';
-	// config.uiColor = '#AADC6E';
-    config.allowedContent = 'div[*]{*}(*); p[*]{*}(*); ul[*]{*}(*); li[*]{*}(*); ol[*]{*}(*); ' +
-                            'table[*]{*}(*); tr[*]{*}(*); td[*]{*}(*); a[href, alt, src, name]{*}(*); ' +
-                            'h1[*]{*}(*); h2[*]{*}(*); h3[*]{*}(*); h4[*]{*}(*); h5[*]{*}(*); ' +
-                            'strong[*]{*}(*); img[*]{*}(*); br[*]{*}(*); em[*]{*}(*); iframe[*]{*}(*); ' +
-                            'article[*]{*}(*);';
+	   config.language = 'uk';
+	   config.uiColor = '#71A9D3';
+       config.allowedContent = true;
+       config.font_names =
+           'Arial/Arial, Helvetica, sans-serif;' +
+           'Times New Roman/Times New Roman, Times, serif;' +
+           'Verdana';
+       config.fontSize_defaultLabel = '16px';
 };

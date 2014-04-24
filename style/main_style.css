@@ -26,6 +26,10 @@ ul{
 }
 
 .b-top-but {
+    background-color:#4879A9;
+    background-image: url(../images/b-j-top.png);
+    background-repeat: no-repeat;
+    background-position: 50% 11px;
     z-index:2600;
     position:absolute;
     display:block;
@@ -33,7 +37,6 @@ ul{
     margin:0 0 0 100%;
     padding:32px 124px 4px;
     color:#FFF;
-    background:#4879A9 url(../images/b-j-top.png) no-repeat 50% 11px;
     border-radius:7px;
 }
 
@@ -442,14 +445,160 @@ ul#menu ul  li ul a{
   top:2px;
   right:2px;
 }
-/*News*/
-#content .news li{
-    display: inline-block;
-    width:400px;
-    list-style: none;
-    height:500px;
-    overflow:hidden;
+
+/*News scroll clock */
+#vertical_scrol {
+    height:120px;
+    font:700 11px Arial;
+    margin:0;
+    padding:10px;
+    display:block;
 }
+#vertical_scrol p {
+    text-align:justify;
+    margin:10px 0;
+}
+#vertical_scrol a {
+    text-decoration:none;
+    color:#7c7c7c;
+}
+#vertical_scrol a:hover {
+    color:#000;
+}
+
+/*News*/
+#content .news .view_blocks li{ /* Стили для отображения блоками */
+    display: inline-block;
+    list-style: none;
+    background: #EFEFEF;
+    border: 1px solid #dedede;
+    width:400px;
+    min-height:450px;
+    margin:5px;
+    vertical-align: top;
+}
+#content li.left_News{
+    margin-right:20px;
+}
+
+#content .news .view_list li{ /* Стили для отображения списком */
+    display: block;
+    list-style: none;
+    margin:5px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ADADAD;
+}
+
+#content .news .view_list li:hover{
+    border:0;
+}
+
+#content #news_list article{
+    font-family: Arial;
+    text-indent: 25px;
+    font-size: 16px;
+    padding: 15px;
+}
+
+#content #news_list article p{
+    font-family: Arial;
+    font-size: 16px;
+    text-indent: 25px;
+}
+
+.left_News{}
+
+.nFull{
+    display: none;
+}
+
+.news_block{
+    position: relative;
+}
+
+.news .view_blocks section:hover{
+    position: absolute;
+}
+
+.news section{
+    background: #EFEFEF;
+    width: 100%;
+}
+
+.news .view_list section{
+    border: 1px solid #dedede;
+}
+
+.news_block section:hover{
+    border-radius: 25px;
+    box-shadow: 1px 1px 5px 3px #1189CF;
+    cursor: pointer;
+}
+
+
+#content p.date_time{
+    text-align: right;
+    font-size: 14px;
+    font-style: italic;
+    padding-right: 20px;
+}
+
+#content p.show_as{
+    text-align: right;
+    margin: 0 5px 15px 5px;
+}
+#content p.show_as span{
+    color:#13749e;
+    cursor: pointer;
+}
+#content p.show_as span:hover{
+    text-decoration: underline;
+}
+
+/*NEWS WINDOW*/
+#news_window_bg{
+    display: none;
+    background: rgba(0,0,0,0.7);
+    overflow:hidden;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 99999;
+}
+
+#news_window_bg:after {
+    display: inline-block;
+    width:  0;
+    height: 100%;
+    vertical-align: middle;
+    content: '';
+}
+
+#news_window{
+    display: inline-block;
+    vertical-align: middle;
+    z-index: 999999;
+}
+
+#news_window .news_window_header{
+    background: #35ada9;
+}
+
+#news_window{
+    background: #35ada9;
+}
+
+#news_window .nFull{
+    display: block;
+}
+#news_window .nShort{
+    display: none;
+}
+
+
 
 /*Calendar*/
 #calendar {
@@ -1398,9 +1547,18 @@ p#autor {
     margin-bottom: 10px;
 }
 
+#form #cke_text{
+    width: 550px;
+    margin-bottom: 10px;
+}
+
 #form #cke_spisok{
     width: 550px;
     margin-bottom: 10px;
+}
+
+#cke_1_contents{
+    min-height: 300px;
 }
 
 #form p:last-child{

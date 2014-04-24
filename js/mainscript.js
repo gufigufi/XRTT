@@ -283,4 +283,57 @@ $(".tabsholder").tytabs({
     $("#form section.error:visible").find('p').css('display','table-cell');
 
 
+    //NEWS
+    $('.news li:even').addClass('left_News'); //добовляем класс для выравнивания нечетных блоков
+
+    var nFull;
+
+    $(function shorting_news () {
+        nShort = $("section[id^=news-id-] article.nShort");
+        nShort.each(function () {
+            $(this).replaceWith("<article class='nShort'>" + $(this).text().substr(0,700) + "&hellip;</article>");
+        }); // Заменяем блок с полной новостью на блок с краткой новостью и добовляем троеточие вконце
+    });
+
+    $('.news_block section').hover(function(){
+        $(this).css('zIndex','9999');
+        $(this).find('.nShort').hide();
+        $(this).find('.nFull').show();
+    }, function(){
+        $(this).find('.nFull').hide();
+        $(this).find('.nShort').show();
+        $(this).css('zIndex','1');
+    });
+
+    //NEWS VIEW
+    var flag = true;
+    $('.show_as span').click(function(){
+        var news_list = $('#news_list');
+        if(flag == true){
+            $(this).text('блоками');
+            news_list.removeClass('view_blocks');
+            news_list.addClass('view_list');
+            flag = false;
+        } else{
+            $(this).text('списком');
+            news_list.removeClass('view_list');
+            news_list.addClass('view_blocks');
+            flag = true;
+        }
+    });
+
+    //NEWS WINDOW
+    $('#news_list').on('click', 'li', function(){
+        var news_window = $('#news_window');
+        var news_title = $(this).find('h3').text();
+        var news_article = $(this).find('.nFull').html();
+        var news_date_time = $(this).find('.date_time').text();
+
+        news_window.find('h2').append(news_title);
+        news_window.find('.news_window_content').append(news_article).append('<p class="date_time">' + news_date_time + '</p>');
+
+        $('#news_window_bg').show(100);
+    });
+
+
 }); //Конец ready

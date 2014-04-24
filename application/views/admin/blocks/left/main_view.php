@@ -55,7 +55,7 @@
             <li>
                 <a href="#">Першокурсники</a>
                 <ul>
-                    <li><a href="#">Додати групу</a></li>
+                    <li><a href="<?=base_url();?>index.php/admin/add/pervokursnik">Додати групу</a></li>
                     <li><a href="#">Редагувати групи</a></li>
                     <li><a href="#">Видалити групу</a></li>
                 </ul>

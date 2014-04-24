@@ -11,7 +11,7 @@ class News_model extends CI_Model {
 
     public function get_news()
     {
-        $query = $this->db->get('news');
+        $query = $this->db->query("SELECT id, text, title, DATE_FORMAT(date,'%d.%m.%Y %h:%i:%s') AS date FROM news");
         return $query->result_array();
     }
 
