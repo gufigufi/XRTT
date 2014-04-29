@@ -172,6 +172,111 @@ class Admin extends CI_Controller {
         }
     }
 
+    function add_albom($page)
+    {
+        $this->load->model('login_model');
+        $data['page_info'] = $this->login_model->get_info($page);
+        $data['user'] = $this->session->userdata('user');
+        $data['user_info']['status'] = $this->session->userdata('status');
+        $data['info'] = '';
+        $data['error'] = '';
+        if(!empty($data['user']))
+        {
+            $this->form_validation->set_rules($this->rules_model->$page);
+            if($this->input->post('add') && $this->form_validation->run())
+            {
+                $title_en = $this->input->post('title_en');
+                $put = './images/galery/'.$title_en;
+                if(!mkdir($put))
+                {
+                    $data['error'] = 'Деректория не добавлена';
+
+                    $name = 'add/'.$page;
+                    $this->template->admin_view($data,$name);
+                }
+                $add['title'] = $this->input->post('title');;
+                $add['title_en'] = $title_en;
+
+
+                $this->admin_model->add_albom($add);
+                $data['info'] = 'Операція пройшла успішно.';
+                $name = 'info';
+                $this->template->admin_view($data,$name);
+            }
+            else
+            {
+                $name = 'add/'.$page;
+                $this->template->admin_view($data,$name);
+            }
+        }
+        else
+        {
+            redirect(base_url().'index.php/admin');
+        }
+    }
+
+
+    function add_photo_view($id='')
+    {
+        $this->load->model('login_model');
+        $data['page_info'] = $this->login_model->get_info('albom');
+        $date['albom'] = $id;
+        $data['user'] = $this->session->userdata('user');
+        $data['user_info']['status'] = $this->session->userdata('status');
+        $data['info'] = '';
+        $data['error'] = '';
+        if(!empty($data['user']))
+        {
+            $name = 'add/photos';
+            $this->template->admin_view($data,$name);
+        }
+        else
+        {
+            redirect(base_url().'index.php/admin');
+        }
+    }
+
+    private function add_photo()
+    {
+        $this->load->model('admin_model');
+        $id = $this->input->post('id');
+        $date['albom'] = $this->admin_model->get_albom_info($id);
+
+        $config['upload_path'] = './images/galery'.$date['albom']['title_en'];
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['max_size']	= '5000';
+        $config['remove_spaces']  = TRUE;
+        $field_name = "files";
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload($field_name))
+        {
+            $data['error'] = $this->upload->display_errors();
+
+            $name = 'add/'.$page;
+            $this->template->admin_view($data,$name);
+        }
+        else
+        {
+            $upload_data = $this->upload->data();
+        }
+
+        $add['img'] = $upload_data['file_name'];
+        $add['id_albom'] = $id;
+
+        $this->admin_model->add_photo($add);
+        $data['info'] = 'Операція пройшла успішно.';
+        $name = 'info';
+        $this->template->admin_view($data,$name);
+
+    }
+
+
+
+
+
+
     function editlist($page)
     {
         $this->load->model('login_model');

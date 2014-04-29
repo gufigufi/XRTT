@@ -147,6 +147,19 @@ class Rules_model extends CI_Model {
         )
     );
 
+    public $albom = array(
+        array(
+            'field' => 'title',
+            'label' => 'Назва альбому',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'title_en',
+            'label' => 'Назва каталогу',
+            'rules' => 'required|alpha_dash'
+        )
+    );
+
     public $pervokursnik = array(
         array(
             'field' => 'otdelenie',

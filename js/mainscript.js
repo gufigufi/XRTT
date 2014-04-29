@@ -238,7 +238,45 @@ $(".tabsholder").tytabs({
 		$('.img_count').text('');
 		$('.img_number').text('');
 		img_src = [];
-	}); 
+	});
+
+    //TIME TABLE ---- DATE & TIME
+    function Today(){
+        var current_date = new Date();
+        var day = current_date.getDate();
+        var month;
+        if((current_date.getMonth() + 1) < 10 ){
+            month = '0' + (current_date.getMonth() + 1);
+        } else {
+            month = current_date.getMonth() + 1;
+        }
+        var year = current_date.getFullYear();
+        var hours = current_date.getHours();
+        var minutes;
+        if((current_date.getMinutes() + 1) < 10 ){
+            minutes = '0' + (current_date.getMinutes() + 1);
+        } else {
+            minutes = current_date.getMinutes() + 1;
+        }
+        var seconds;
+        if((current_date.getSeconds() + 1) < 10 ){
+            seconds = '0' + (current_date.getSeconds() + 1);
+        } else {
+            seconds = current_date.getSeconds() + 1;
+        }
+
+        return day + '.' + month + '.' + year  + ' ' + hours + ':' + minutes + ':' + seconds;
+
+        //alert(day + '.' + month + '.' + year  + ' ' + hours + ':' + minutes + ':' + seconds);
+    }
+
+
+    $('input[value="Редагувати"]').hover(function(){
+        //alert(day + '.' + month + '.' + year  + ' ' + hours + ':' + minutes + ':' + seconds);
+        var today = Today();
+        alert(today);
+        $('#change_table_date').append('<span>' + today + '</span>');
+    });
 
 //ADMIN MENU -------------------------------------------------------------------------------
 

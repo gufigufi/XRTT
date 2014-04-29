@@ -28,8 +28,8 @@
             <li>
                 <a href="#">Галерея</a>
                 <ul>
-                    <li><a href="#">Додати альбом</a></li>
-                    <li><a href="#">Редагувати альбом</a></li>
+                    <li><a href="<?=base_url();?>index.php/admin/add_albom/albom">Додати альбом</a></li>
+                    <li><a href="<?=base_url();?>index.php/admin/editlist/albom">Редагувати альбом</a></li>
                     <li><a href="#">Видалити альбом</a></li>
                 </ul>
             </li>
@@ -56,17 +56,17 @@
                 <a href="#">Першокурсники</a>
                 <ul>
                     <li><a href="<?=base_url();?>index.php/admin/add/pervokursnik">Додати групу</a></li>
-                    <li><a href="#">Редагувати групи</a></li>
-                    <li><a href="#">Видалити групу</a></li>
+                    <li><a href="<?=base_url();?>index.php/admin/editlist/pervokursnik">Редагувати групи</a></li>
+                    <li><a href="<?=base_url();?>index.php/admin/del/pervokursnik">Видалити групу</a></li>
                 </ul>
             </li>
 
             <li>
                 <a href="#">Випускники</a>
                 <ul>
-                    <li><a href="#">Додати групу</a></li>
-                    <li><a href="#">Редагувати групи</a></li>
-                    <li><a href="#">Видалити групу</a></li>
+                    <li><a href="<?=base_url();?>index.php/admin/add/vipusknik">Додати групу</a></li>
+                    <li><a href="<?=base_url();?>index.php/admin/editlist/vipusknik">Редагувати групи</a></li>
+                    <li><a href="<?=base_url();?>index.php/admin/del/vipusknik">Видалити групу</a></li>
                 </ul>
             </li>
 

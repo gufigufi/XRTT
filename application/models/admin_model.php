@@ -30,6 +30,23 @@ class Admin_model extends CI_Model {
         $this->db->insert($page,$add);
     }
 
+    function add_albom($add)
+    {
+        $this->db->insert('albom',$add);
+    }
+
+    function add_photo ($add)
+    {
+        $this->db->insert('galery',$add);
+    }
+
+    function get_albom_info($id)
+    {
+        $this->db->where('id',$id);
+        $query = $this->db->get('albom');
+        return $query->row_array();
+    }
+
     function get_editlist_main($page)
     {
         $this->db->order_by('id');

@@ -9,9 +9,10 @@ class News_model extends CI_Model {
         return $query->row_array();
     }
 
-    public function get_news()
+    public function get_news($num, $offset)
     {
-        $query = $this->db->query("SELECT id, text, title, DATE_FORMAT(date,'%d.%m.%Y %h:%i:%s') AS date FROM news");
+        $query = $this->db->get('news',$num, $offset);
+        //$query = $this->db->query("SELECT id, text, title, DATE_FORMAT(date,'%d.%m.%Y %h:%i:%s') AS date FROM news ORDER BY date DESC  LIMIT $offset,$num");
         return $query->result_array();
     }
 
