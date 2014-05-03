@@ -510,6 +510,7 @@ ul#menu ul  li ul a{
 
 .nFull{
     display: none;
+    overflow: hidden
 }
 
 .news_block{
@@ -559,7 +560,6 @@ ul#menu ul  li ul a{
 #news_window_bg{
     display: none;
     background: rgba(0,0,0,0.7);
-    overflow:hidden;
     position: fixed;
     top:0;
     left:0;
@@ -578,22 +578,12 @@ ul#menu ul  li ul a{
 }
 
 #news_window{
+    background: #EFEFEF;
+    max-width: 1200px;
     display: inline-block;
     vertical-align: middle;
     z-index: 999999;
-}
-
-#news_window .news_window_header{
-    background: #4879A9;
-}
-
-#news_window{
-    background: #35ada9;
-    max-width: 1000px;
-}
-
-#news_window .news_window_content{
-    padding: 15px;
+    position: relative;
 }
 
 #news_window .nFull{
@@ -603,6 +593,87 @@ ul#menu ul  li ul a{
     display: none;
 }
 
+#news_window .news_window_header{
+    background: #356aa0; /* Old browsers */
+    background: -moz-linear-gradient(top,  #356aa0 0%, #356aa0 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#356aa0), color-stop(100%,#356aa0)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #356aa0 0%,#356aa0 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #356aa0 0%,#356aa0 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #356aa0 0%,#356aa0 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #356aa0 0%,#356aa0 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#356aa0', endColorstr='#356aa0',GradientType=0 ); /* IE6-9 */
+}
+
+#news_window .news_window_header h2{
+    color: #FFF;
+    margin:0;
+    padding: 5px 55px 3px 15px;
+}
+
+#news_window .news_window_header p.news_window_close{
+    position: absolute;
+    top: 2px;
+    right: 3px;
+    text-align: right;
+    margin: 0;
+/*  background:url('../images/btn-close.png') no-repeat;
+    background-size: cover;  */
+    font-family: Arial;
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: bold;
+    color:#DDD;
+    background: #990000;
+    padding-left: 17px;
+    padding-right: 17px;
+}
+#news_window .news_window_header p.news_window_close:hover{
+    color:#FFF;
+    background: #DD0000;
+    cursor: pointer;
+}
+
+#news_window .news_window_content{
+    border: 3px solid #356aa0;
+    padding: 8px 15px 10px;
+    overflow:auto;
+    max-height: 700px;
+}
+
+#news_window .news_window_content p{
+    margin-top: 0;
+}
+
+#news_window .news_window_content p.date_time{
+    margin:0;
+    color:#E13300;
+    text-align: right;
+    font-size: 0.85em;
+    font-style: italic;
+}
+
+/* Pagination */
+#content .pagination{
+    text-align: center;
+    margin-top: 15px;
+}
+
+#content .pagination a[href],
+#content .pagination strong{
+    background: #1189CF;
+    color:#FFF;
+    border-radius: 15px;
+    padding:5px 10px;
+}
+
+#content .pagination strong{
+    color:#000;
+}
+
+#content .pagination a[href]:hover{
+    color:#999;
+    text-shadow: 1px 1px 2px black, 0 0 1em #00E;
+}
 
 
 /*Calendar*/
@@ -1854,4 +1925,67 @@ form[name=page] #form{
     font:700 12px Arial;
     text-align: center;
     text-indent:0px;
+}
+
+
+/* --- GALLERY UPLOAD  --- */
+#content .btn{
+    font-size:15px;
+}
+
+#content .btn input{
+    height:24px;
+    width:200px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#content .fileinput-button{
+    border:1px solid #163B65;
+    padding:5px;
+    color:#FFF;
+    font-family: Arial;
+    font-weight:400;
+    background:#4879A9;
+    margin-right: 10px;
+}
+#content .fileinput-button:hover{
+    background-color:#87B6DA;
+    border-color:#4879A9;
+    text-shadow: 1px 1px 2px black, 0 0 1em #00f;
+    cursor:pointer;
+}
+
+#content .start{
+    border:1px solid #163B65;
+    padding:5px;
+    color:#FFF;
+    font-family: Arial;
+    font-weight:400;
+    font-size:14px;
+    background:#4879A9;
+    width:150px;
+}
+#content .start:hover{
+    background-color:#87B6DA;
+    border-color:#4879A9;
+    text-shadow: 1px 1px 2px black, 0 0 1em #00f;
+    cursor:pointer;
+}
+
+#content .cancel{
+    border:1px solid #163B65;
+    padding:5px;
+    color:#FFF;
+    font-family: Arial;
+    font-weight:400;
+    font-size:14px;
+    background:#4879A9;
+    width:150px;
+}
+#content .cancel:hover{
+    background-color:#87B6DA;
+    border-color:#4879A9;
+    text-shadow: 1px 1px 2px black, 0 0 1em #00f;
+    cursor:pointer;
 }

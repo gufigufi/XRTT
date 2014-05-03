@@ -361,16 +361,25 @@ $(".tabsholder").tytabs({
     });
 
     //NEWS WINDOW
+    var news_window = $('#news_window');
+
     $('#news_list').on('click', 'li', function(){
-        var news_window = $('#news_window');
         var news_title = $(this).find('h3').text();
         var news_article = $(this).find('.nFull').html();
         var news_date_time = $(this).find('.date_time').text();
 
         news_window.find('h2').append(news_title);
-        news_window.find('.news_window_content').append(news_article).append('<p class="date_time">' + news_date_time + '</p>');
+        news_window.find('.news_window_content').append(news_article).append('<br class="clear"><p class="date_time">' + news_date_time + '</p>');
 
-        $('#news_window_bg').show(100);
+        $('#news_window_bg').show();
+        $('#news_window').show(200);
+    });
+
+    $('#news_window .news_window_close').click(function(){
+        $('#news_window').hide(200);
+        $('#news_window_bg').hide();
+        news_window.find('h2').empty();
+        news_window.find('.news_window_content').empty();
     });
 
 

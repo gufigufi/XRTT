@@ -4,6 +4,8 @@ class Rukovodstvo extends CI_Controller {
 
     public function index()
     {
+        $this->load->model('news_model');
+        $data['news_left'] = $this->news_model->get_news_left();
         $this->load->model('rukovodstvo_model');
         $data['pages_info'] = $this->rukovodstvo_model->get_info('rukovodstvo');
         $data['rukovodstvo'] = $this->rukovodstvo_model->get_rukovodstvo();

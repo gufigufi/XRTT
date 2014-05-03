@@ -4,10 +4,12 @@ class News extends CI_Controller {
 
     public function index()
     {
+        $this->load->model('news_model');
+        $data['news_left'] = $this->news_model->get_news_left();
         $config['base_url'] = base_url().'index.php/news/index';
         $config['total_rows'] = $this->db->count_all('news');
-        $config['per_page'] = '2';
-        $config['full_tag_open'] = '<p>';
+        $config['per_page'] = '4';
+        $config['full_tag_open'] = '<p class="pagination">';
         $config['full_tag_close'] = '</p>';
         $config['first_link'] = 'Перша';
         $config['last_link'] = 'Остання';

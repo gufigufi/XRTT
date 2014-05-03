@@ -5,7 +5,7 @@
     <div class="container">
 
         <!-- The file upload form used as target for the file upload widget -->
-        <form id="fileupload" action="<?=base_url()?>index.php/admin/add_photo" method="POST" enctype="multipart/form-data" >
+        <form id="fileupload" action="<?=base_url()?>index.php/admin/add_photo" method="POST" enctype="multipart/form-data" data-ng-app="demo" data-ng-controller="DemoFileUploadController" data-file-upload="options" data-ng-class="{'fileupload-processing': processing() || loadingFiles}">
 
            <input type="hidden" value="" name="id">
 
@@ -65,11 +65,11 @@
                     <td>
                         <button type="button" class="btn btn-primary start" data-ng-click="file.$submit()" data-ng-hide="!file.$submit || options.autoUpload" data-ng-disabled="file.$state() == 'pending' || file.$state() == 'rejected'">
                             <i class="glyphicon glyphicon-upload"></i>
-                            <span>Start</span>
+                            <span>Розпочати</span>
                         </button>
                         <button type="button" class="btn btn-warning cancel" data-ng-click="file.$cancel()" data-ng-hide="!file.$cancel">
                             <i class="glyphicon glyphicon-ban-circle"></i>
-                            <span>Cancel</span>
+                            <span>Відмінити</span>
                         </button>
                         <button data-ng-controller="FileDestroyController" type="button" class="btn btn-danger destroy" data-ng-click="file.$destroy()" data-ng-hide="!file.$destroy">
                             <i class="glyphicon glyphicon-trash"></i>

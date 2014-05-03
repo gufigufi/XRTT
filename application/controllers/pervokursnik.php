@@ -4,6 +4,8 @@ class Pervokursnik extends CI_Controller {
 
     public function index()
     {
+        $this->load->model('news_model');
+        $data['news_left'] = $this->news_model->get_news_left();
         $this->load->model('pervokursnik_v_model');
         $data['pages_info'] = $this->pervokursnik_v_model->get_info('pervokursnik_v');
         $data['pervokursnik'] = $this->pervokursnik_v_model->get_pervokursnik();
@@ -17,6 +19,8 @@ class Pervokursnik extends CI_Controller {
 
     public function pervokursnik_full($id='')
     {
+        $this->load->model('news_model');
+        $data['news_left'] = $this->news_model->get_news_left();
         $this->load->model('pervokursnik_v_model');
         $data['pages_info'] = $this->pervokursnik_v_model->get_info('pervokursnik_v');
         $data['pervokursnik'] = $this->pervokursnik_v_model->get_pervokursnik_full($id);

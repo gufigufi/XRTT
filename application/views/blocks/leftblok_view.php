@@ -1,11 +1,11 @@
     <div id="news" class="side_block">
         <h2>ПОДІЇ ТА НОВИНИ</h2>
         <marquee id="vertical_scrol" behavior="scroll" scrollAmount="2" direction="up" onmouseover='this.stop()' onmouseout='this.start()'>
-            <p><a href="access_course.php">Триває запис в останні групи ліцензованих підготовчих курсів терміном навчання 4 місяці. Кількість місць обмежена. Початок занять 29.03.2014р.</a></p>
-            <p><a href="rules.php">Затверджені та погоджені МОН Правила прийому до Харківського радіотехнічного технікуму на 2014р.</a></p>
-            <p><a href="selection_committee.php">Оновлено інформацію у вкладці приймальна комісія технікуму.</a></p>
+            <?php foreach($news_left as $item):?>
+                <p><?=$item['title'];?></p>
+            <?endforeach;?>
         </marquee>
-        <p id="sbb"><a href="news.php">всі новини та події технікуму</a></p>
+        <p id="sbb"><a href="<?=base_url();?>index.php/news">всі новини та події технікуму</a></p>
     </div>
     <div class="side_block">
         <h2>ТЕЛЕФОНИ</h2>

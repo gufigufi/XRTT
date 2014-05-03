@@ -4,6 +4,8 @@ class Best_students extends CI_Controller {
 
     public function index()
     {
+        $this->load->model('news_model');
+        $data['news_left'] = $this->news_model->get_news_left();
         $this->load->model('best_model');
         $data['pages_info'] = $this->best_model->get_info('best_students');
         $data['best'] = $this->best_model->get_best();
@@ -17,6 +19,8 @@ class Best_students extends CI_Controller {
 
     public function registered_fellows()
     {
+        $this->load->model('news_model');
+        $data['news_left'] = $this->news_model->get_news_left();
         $this->load->model('best_model');
         $data['pages_info'] = $this->best_model->get_info('registered_fellows');
         $data['stependiat'] = $this->best_model->get_stependiat();

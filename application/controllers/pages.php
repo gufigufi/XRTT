@@ -9,6 +9,8 @@ class Pages extends CI_Controller {
 
     function page($title)
     {
+        $this->load->model('news_model');
+        $data['news_left'] = $this->news_model->get_news_left();
         $data['pages_info'] = $this->pages_model->get_pages_info($title);
         $data['user'] = $this->session->userdata('user');
         $data['user_info']['status'] = $this->session->userdata('status');

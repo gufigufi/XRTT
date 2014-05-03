@@ -4,6 +4,8 @@ class Login extends CI_Controller {
 
     function index()
     {
+        $this->load->model('news_model');
+        $data['news_left'] = $this->news_model->get_news_left();
         $this->load->model('login_model');
         $data['pages_info'] = $this->login_model->get_info('register');
         $data['user'] = $this->session->userdata('user');
@@ -34,6 +36,8 @@ class Login extends CI_Controller {
 
     function edit_pswd()
     {
+        $this->load->model('news_model');
+        $data['news_left'] = $this->news_model->get_news_left();
         $this->load->model('login_model');
         $this->load->library('form_validation');
         $data['pages_info'] = $this->login_model->get_info('users');

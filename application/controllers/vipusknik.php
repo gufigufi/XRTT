@@ -4,6 +4,8 @@ class Vipusknik extends CI_Controller {
 
     public function index()
     {
+        $this->load->model('news_model');
+        $data['news_left'] = $this->news_model->get_news_left();
         $this->load->model('pervokursnik_v_model');
         $data['pages_info'] = $this->pervokursnik_v_model->get_info('vipusknik_v');
         $data['vipusknik'] = $this->pervokursnik_v_model->get_vipusknik();
@@ -17,6 +19,8 @@ class Vipusknik extends CI_Controller {
 
     public function vipusknik_full($id='')
     {
+        $this->load->model('news_model');
+        $data['news_left'] = $this->news_model->get_news_left();
         $this->load->model('pervokursnik_v_model');
         $data['pages_info'] = $this->pervokursnik_v_model->get_info('vipusknik_v');
         $data['vipusknik'] = $this->pervokursnik_v_model->get_vipusknik_full($id);
