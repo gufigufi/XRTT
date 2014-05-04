@@ -29,7 +29,7 @@ class Admin extends CI_Controller {
                 }
                 else
                 {
-                    $data['info'] = 'Вы не облодаете правами админестратора. Либл ввели не верные денные!';
+                    $data['info'] = 'Ви не маєте прав адміністратора. Або ввели невірі данні!';
                 }
             }
             $this->load->view('admin/login_view',$data);
@@ -75,36 +75,18 @@ class Admin extends CI_Controller {
                     $config['max_size']	= '5000';
                     $config['remove_spaces']  = TRUE;
                 }
-                if($page == 'pervokursnik')
+                $this->load->library('upload', $config);
+
+                if ( ! $this->upload->do_upload())
                 {
-                    $config['upload_path'] = './images/first_course/';
-                    $config['allowed_types'] = 'gif|jpg|png';
-                    $config['max_size']	= '5000';
-                    $config['remove_spaces']  = TRUE;
+                    $data['error'] = $this->upload->display_errors();
+
+                    $name = 'add/'.$page;
+                    $this->template->admin_view($data,$name);
                 }
-                if($page == 'vipusknik')
+                else
                 {
-                    $config['upload_path'] = './images/vipusknik/';
-                    $config['allowed_types'] = 'gif|jpg|png';
-                    $config['max_size']	= '5000';
-                    $config['remove_spaces']  = TRUE;
-                }
-
-                if($page != 'news')
-                {
-                    $this->load->library('upload', $config);
-
-                    if ( ! $this->upload->do_upload())
-                    {
-                        $data['error'] = $this->upload->display_errors();
-
-                        $name = 'add/'.$page;
-                        $this->template->admin_view($data,$name);
-                    }
-                    else
-                    {
-                        $upload_data = $this->upload->data();
-                    }
+                    $upload_data = $this->upload->data();
                 }
 
                 if(!empty($upload_data['file_name']))
@@ -127,19 +109,6 @@ class Admin extends CI_Controller {
                 $add['date_o'] = $this->input->post('date_o');
                 $add['zasluga'] = $this->input->post('zasluga');
 
-                $add['otdelenie'] = $this->input->post('otdelenie');
-                $add['spetsialnost'] = $this->input->post('spetsialnost');
-                $add['kl_rukovod'] = $this->input->post('kl_rukovod');
-                $add['date'] = $this->input->post('date');
-                $add['spisok'] = $this->input->post('spisok');
-
-                $add['title'] = $this->input->post('title');
-                $add['text'] = $this->input->post('text');
-
-
-
-
-
 
                 foreach ($add as $key=>$val)
                 {
@@ -151,7 +120,7 @@ class Admin extends CI_Controller {
 
 
 
-                if(isset($add['img']) || $page == 'news')
+                if(isset($add['img']))
                 {
                     $this->admin_model->add($page,$add);
                     $data['info'] = 'Операція пройшла успішно.';
@@ -215,64 +184,60 @@ class Admin extends CI_Controller {
         }
     }
 
+    //-----
 
-    function add_photo_view($id='')
-    {
-        $this->load->model('login_model');
+    function add_photo($id='')
+    {$this->load->model('login_model');
         $data['page_info'] = $this->login_model->get_info('albom');
-        $date['albom'] = $id;
         $data['user'] = $this->session->userdata('user');
+        $date['albom'] = $this->admin_model->get_albom_info($id);
         $data['user_info']['status'] = $this->session->userdata('status');
         $data['info'] = '';
         $data['error'] = '';
         if(!empty($data['user']))
         {
-            $name = 'add/photos';
-            $this->template->admin_view($data,$name);
+            if ($this->input->post('load_files'))
+            {
+                $config['upload_path'] = './images/galery/'.$date['albom']['title_en'].'/';
+                $config['allowed_types'] = 'gif|jpg|png';
+                $config['max_size']	= '50000';
+                $config['remove_spaces']  = TRUE;
+
+                $this->load->library('upload', $config);
+                $this->upload->initialize($config);
+                $temp_files = $_FILES;
+                $count = count ($_FILES['file']['name']);
+                for ($i=0; $i<=$count-1; $i++)
+                {
+                    $_FILES['file'] = array (
+                        'name'=>$temp_files['file']['name'][$i],
+                        'type'=>$temp_files['file']['type'][$i],
+                        'tmp_name'=>$temp_files['file']['tmp_name'][$i],
+                        'error'=>$temp_files['file']['error'][$i],
+                        'size'=>$temp_files['file']['size'][$i]);
+                    $this->upload->do_upload('file');
+                    $tmp_data = $this->upload->data();
+                    $files_data[$i]['data'] = $tmp_data['file_name'];
+                }
+
+                $this->admin_model->add_photo($files_data,$id);
+                $data['info'] = 'Операція пройшла успішно.';
+                $name = 'info';
+                $this->template->admin_view($data,$name);
+            }
+            else
+            {
+                $name = 'add/photos';
+                $this->template->admin_view($data,$name);
+            }
         }
         else
         {
             redirect(base_url().'index.php/admin');
         }
-    }
+}
 
-    private function add_photo()
-    {
-        $this->load->model('admin_model');
-        $id = $this->input->post('id');
-        $date['albom'] = $this->admin_model->get_albom_info($id);
-
-        $config['upload_path'] = './images/galery'.$date['albom']['title_en'];
-        $config['allowed_types'] = 'gif|jpg|png';
-        $config['max_size']	= '5000';
-        $config['remove_spaces']  = TRUE;
-        $field_name = "files";
-
-        $this->load->library('upload', $config);
-
-        if ( ! $this->upload->do_upload($field_name))
-        {
-            $data['error'] = $this->upload->display_errors();
-
-            $name = 'add/'.$page;
-            $this->template->admin_view($data,$name);
-        }
-        else
-        {
-            $upload_data = $this->upload->data();
-        }
-
-        $add['img'] = $upload_data['file_name'];
-        $add['id_albom'] = $id;
-
-        $this->admin_model->add_photo($add);
-        $data['info'] = 'Операція пройшла успішно.';
-        $name = 'info';
-        $this->template->admin_view($data,$name);
-
-    }
-
-
+    //-----
 
 
 
@@ -310,6 +275,7 @@ class Admin extends CI_Controller {
     {
         $this->load->model('login_model');
         $data['page_info'] = $this->login_model->get_info($page);
+        $data['admins'] = $this->admin_model->get_admin_status();
         $data['user'] = $this->session->userdata('user');
         $data['user_info']['status'] = $this->session->userdata('status');
         $data['pages_info'] = $this->admin_model->get_info($page,$id);
@@ -341,22 +307,8 @@ class Admin extends CI_Controller {
                     $config['max_size']	= '5000';
                     $config['remove_spaces']  = TRUE;
                 }
-                if($page == 'pervokursnik')
-                {
-                    $config['upload_path'] = './images/first_course/';
-                    $config['allowed_types'] = 'gif|jpg|png';
-                    $config['max_size']	= '5000';
-                    $config['remove_spaces']  = TRUE;
-                }
-                if($page == 'vipusknik')
-                {
-                    $config['upload_path'] = './images/vipusknik/';
-                    $config['allowed_types'] = 'gif|jpg|png';
-                    $config['max_size']	= '5000';
-                    $config['remove_spaces']  = TRUE;
-                }
 
-                if($page != 'page' && $page != 'users' && $page != 'news')
+                if($page != 'page' && $page != 'users')
                 {
                     $this->load->library('upload', $config);
                     if ( ! $this->upload->do_upload() && empty($data['pages_info']['img']))
@@ -386,12 +338,6 @@ class Admin extends CI_Controller {
                     
                     if($page == 'registered_fellows')
                         unlink('./images/reg_fel/'.$data['pages_info']['img']);
-
-                    if($page == 'pervokursnik')
-                        unlink('./images/first_course/'.$data['pages_info']['img']);
-
-                    if($page == 'vipusknik')
-                        unlink('./images/vipusknik/'.$data['pages_info']['img']);
                 }
                 elseif(!empty($data['pages_info']['img']) && isset($data['pages_info']['img'])){
                     $edit['img'] = $data['pages_info']['img'];
@@ -417,14 +363,6 @@ class Admin extends CI_Controller {
                 $edit['username'] = $this->input->post('username');
                 $edit['status'] = $this->input->post('status');
 
-                $edit['otdelenie'] = $this->input->post('otdelenie');
-                $edit['spetsialnost'] = $this->input->post('spetsialnost');
-                $edit['kl_rukovod'] = $this->input->post('kl_rukovod');
-                $edit['date'] = $this->input->post('date');
-                $edit['spisok'] = $this->input->post('spisok');
-
-                $edit['title'] = $this->input->post('title');
-
                 foreach ($edit as $key=>$val)
                 {
                     if(!$edit[$key])
@@ -434,7 +372,7 @@ class Admin extends CI_Controller {
                 }
 
                     $this->admin_model->edit($page,$edit,$id);
-                    $data['info'] = 'Операция прошла успешно';
+                    $data['info'] = 'Операція пройшла успішно';
                     $name = 'info';
                     $this->template->admin_view($data,$name);
             }
@@ -459,10 +397,7 @@ class Admin extends CI_Controller {
         $data['info'] = '';
         if(!empty($data['user']))
         {
-            if($page == 'users')
-                $data['del'] = $this->admin_model->get_editlist_admin();
-            else
-                $data['del'] = $this->admin_model->get_editlist_main($page);
+            $data['del'] = $this->admin_model->get_editlist_main($page);
             if($this->input->post('del_hid') == 1)
             {
                 $id = $this->input->post('id');
@@ -477,17 +412,10 @@ class Admin extends CI_Controller {
 
                     if($page == 'registered_fellows')
                         unlink('./images/reg_fel/'.$data['pages_info']['img']);
-
-                    if($page == 'pervokursnik')
-                        unlink('./images/first_course/'.$data['pages_info']['img']);
-
-                    if($page == 'vipusknik')
-                        unlink('./images/vipusknik/'.$data['pages_info']['img']);
-
                 }
                 $this->admin_model->del($page,$id);
 
-                $data['info'] = 'Операция прошла успешно';
+                $data['info'] = 'Операція пройшла успішно';
                 $name = 'info';
                 $this->template->admin_view($data,$name);
             }
@@ -504,68 +432,12 @@ class Admin extends CI_Controller {
     }
 
 
-    function edit_admin($id='')
-    {
-        $this->load->model('login_model');
-        $data['page_info'] = $this->login_model->get_info('users');
-        $data['pages_info'] = $this->admin_model->get_info('users',$id);
-        $data['admins'] = $this->admin_model->get_admin_status();
-        $data['user'] = $this->session->userdata('user');
-        $data['user_info']['status'] = $this->session->userdata('status');
-        $data['error'] = '';
-        $name = 'edit/users';
-        if(!empty($data['user']))
-        {
-            $this->form_validation->set_rules($this->rules_model->users);
-            if($this->form_validation->run() && $this->input->post('edit'))
-            {
-                $username = $this->input->post('username');
-                $login_check = $this->login_model->check_login($username);
-                if(!$login_check)
-                {
-                    $info_msg = 'Пользователь с данным логином уже зарегистрирован';
-                }
-
-                if($login_check == TRUE)
-                {
-                    $edit['username'] = $this->input->post('username');
-                    $edit['status'] = $this->input->post('status');
-
-                    foreach ($edit as $key=>$val)
-                    {
-                        if(!$edit[$key])
-                        {
-                            unset($edit[$key]);
-                        }
-                    }
-
-                    $this->admin_model->edit('users',$edit,$id);
-                    $data['info'] = 'Операция прошла успешно';
-                    $name = 'info';
-                    $this->template->admin_view($data,$name);
-                }
-                else{
-
-                    $data['error'] = $info_msg;
-                    $this->template->admin_view($data,$name);
-                }
-            }
-            else
-            {
-                $this->template->admin_view($data,$name);
-            }
-
-        }
-        else
-        {
-            $this->template->admin_view($data,$name);
-        }
-    }
 
 
     function register()
     {
         $this->load->model('login_model');
+        $this->load->library('form_validation');
         $data['page_info'] = $this->login_model->get_info('register');
         $data['admins'] = $this->admin_model->get_admin_status();
         $data['user'] = $this->session->userdata('user');
@@ -584,16 +456,16 @@ class Admin extends CI_Controller {
                 $login_check = $this->login_model->check_login($username);
                 if($password != $password_again)
                 {
-                    $info_msg = 'Пароли не совподают';
+                    $info_msg = 'Паролі не співпадають';
 
                 }
                 if($captcha != $this->session->userdata['captcha'])
                 {
-                    $info_msg = 'Символы с картинки введены не верно';
+                    $info_msg = 'Символи с картинки введені не вірно';
                 }
                 if(!$login_check)
                 {
-                    $info_msg = 'Пользователь с данным логином уже зарегистрирован';
+                    $info_msg = 'Користувач с даним логіном уже зареєстрован';
                 }
 
                 if($login_check == TRUE && $password == $password_again && $captcha == $this->session->userdata['captcha'])
@@ -604,16 +476,14 @@ class Admin extends CI_Controller {
 
                     $this->login_model->register($new);
 
-                    $data['info'] = 'Операция прошла успешно';
+                    $data['info'] = 'Операція пройшла успішно';
                     $name = 'info';
                     $this->template->admin_view($data,$name);
                 }
-                else{
 
-                    $data['error'] = $info_msg;
-                    $data['captcha'] = $this->captcha->get_captcha();
-                    $this->template->admin_view($data,$name);
-                }
+                $data['error'] = $info_msg;
+                $data['captcha'] = $this->captcha->get_captcha();
+                $this->template->admin_view($data,$name);
             }
             else
             {

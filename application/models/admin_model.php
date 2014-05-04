@@ -35,9 +35,13 @@ class Admin_model extends CI_Model {
         $this->db->insert('albom',$add);
     }
 
-    function add_photo ($add)
+    function add_photo($file,$id)
     {
-        $this->db->insert('galery',$add);
+        foreach($file as $item):
+            $data['id_albom'] = $id;
+            $data['img'] = $item['data'];
+            $this->db->insert('galery',$data);
+        endforeach;
     }
 
     function get_albom_info($id)

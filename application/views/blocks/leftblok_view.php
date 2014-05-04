@@ -14,7 +14,7 @@
             <strong>731-22-81</strong> (Заступник директра з ВР)<br />
             <strong>731-15-44</strong> (Методист)
         </p>
-        <p id="telephone_directory"><a href="telephone_directory.php">Телефонний довідник технікуму</a></p>
+        <p id="telephone_directory"><a href="<?=base_url();?>index.php/pages/page/telephone_directory">Телефонний довідник технікуму</a></p>
     </div>
     <div class="side_block">
         <div id="calendar" class="demo">

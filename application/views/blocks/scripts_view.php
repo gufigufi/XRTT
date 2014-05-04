@@ -3,6 +3,7 @@
 <head>
     <title><?=$pages_info['title'];?></title>
     <meta charset="utf-8"/>
+    <link rel="icon" type="image/png" href="<?=base_url();?>images/favicon.png" />
     <meta name="Keywords" content="Правова основа діяльності Харківського радіотехнічного технікуму, правова основа технікуму" />
     <link rel="stylesheet" type="text/css" href="<?=base_url();?>style/main_style.css" />
     <link rel="stylesheet" type="text/css" href="<?=base_url();?>style/jquery-ui-1.10.4.custom.min.css" />
