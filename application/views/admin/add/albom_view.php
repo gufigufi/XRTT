@@ -11,10 +11,6 @@
             </p>
             <section class="error"><?=form_error('title');?></section>
 
-            <p>
-                <label for="title_en" title="Тільки латинські символи, цифри та знаки підкреслювання" ><strong>Назва каталогу:</strong></label>
-                <input name="title_en" type="text" id="title_en" value="<?=set_value('title_en');?>" title="Тільки латинські символи, цифри та знаки підкреслювання" >
-            </p>
             <section class="error"><?=form_error('title_en');?></section>
 
             <p>

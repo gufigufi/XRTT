@@ -17,7 +17,7 @@
                 </ul>
             </li>
             <li><a href="<?=base_url();?>index.php/pages/page/subject_commission" target="_blank">Циклові комісії</a></li>
-            <li><a href="photo_gallery.php">Фотогалерея</a></li>
+            <li><a href="<?=base_url();?>index.php/galery" target="_blank">Фотогалерея</a></li>
             <li><a href="<?=base_url();?>index.php/pages/page/government_purchasing" target="_blank">Державні закупівлі</a></li>
             <li><a href="<?=base_url();?>index.php/pages/page/vacancy" target="_blank">Вакансії</a></li>
             <li><a href="<?=base_url();?>index.php/pages/page/public_info" target="_blank">Доступ до публічної інформації</a></li>
@@ -36,13 +36,13 @@
                     <li><a href="<?=base_url();?>time_table/4kurs.pdf" target="_blank">4 курс</a></li>
                 </ul>
             </li>
-            <li><a href="news.php">Події та новини технікуму</a></li>
+            <li><a href="<?=base_url();?>index.php/news" target="_blank">Події та новини технікуму</a></li>
             <li><a href="<?=base_url();?>index.php/pages/page/sport_life" target="_blank">Спортивне життя</a></li>
             <li><a href="<?=base_url();?>index.php/pages/page/students_control" target="_blank">Студентське самоврядування</a></li>
             <li><a href="<?=base_url();?>index.php/best_students" target="_blank">Кращі студенти</a></li>
             <li><a href="<?=base_url();?>index.php/best_students/registered_fellows" target="_blank">Іменні степендіати</a></li>
-            <li><a href="first_year_students.php">Наші першокурсники</a></li>
-            <li><a href="graduates.php">Наші випускники</a></li>
+            <li><a href="<?=base_url();?>index.php/pervokursnik" target="_blank">Наші першокурсники</a></li>
+            <li><a href="<?=base_url();?>index.php/vipusknik" target="_blank">Наші випускники</a></li>
         </ul>
     </li>
     <li class="menu_item"><a>Абітурієнту</a>

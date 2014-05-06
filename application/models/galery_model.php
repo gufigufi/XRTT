@@ -9,11 +9,9 @@ class Galery_model extends CI_Model {
         return $query->row_array();
     }
 
-    function get_galery($num, $offset)
+    function get_albom($num, $offset)
     {
-        //$query = $this->db->get('news',$num, $offset);
-        if(!$offset) $offset = 0;
-        $query = $this->db->query("SELECT * AS date FROM news ORDER BY date DESC  LIMIT $offset,$num");
+        $query = $this->db->get('albom',$num, $offset);
         return $query->result_array();
     }
 

@@ -24,6 +24,29 @@ class Login_model extends CI_Model {
         }
     }
 
+    function check_login_edit($username,$id)
+    {
+        $this->db->select('username')->where('username',$username);
+        $query = $this->db->get('users');
+
+        $this->db->select('username')->where('id',$id);
+        //$query1 = $this->db->query('SELECT username FROM users WHERE id = $id');
+        $query1 = $this->db->query("SELECT username FROM users WHERE id = $id");
+        $query1 = $query1->row();
+
+        if($query->num_rows() > 0)
+        {
+            if($query1->username == $username)
+                return TRUE;
+            else
+                return FALSE;
+        }
+        else
+        {
+            return TRUE;
+        }
+    }
+
     function check_pswd($pswd,$user)
     {
         $this->db->where('password',$pswd);

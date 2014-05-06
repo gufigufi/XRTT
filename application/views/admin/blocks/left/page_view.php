@@ -3,7 +3,7 @@
         <h2>АДМІН МЕНЮ</h2>
         <ul>
             <li>
-                <a href="">Редагування сторінок</a>
+                <a href="<?=base_url();?>index.php/admin/editlist/page">Редагування сторінок</a>
             </li>
         </ul>
     </div>

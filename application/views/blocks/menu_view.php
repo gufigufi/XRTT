@@ -17,7 +17,7 @@
                 </ul>
             </li>
             <li><a href="<?=base_url();?>index.php/pages/page/subject_commission">Циклові комісії</a></li>
-            <li><a href="photo_gallery.php">Фотогалерея</a></li>
+            <li><a href="<?=base_url();?>index.php/galery">Фотогалерея</a></li>
             <li><a href="<?=base_url();?>index.php/pages/page/government_purchasing">Державні закупівлі</a></li>
             <li><a href="<?=base_url();?>index.php/pages/page/vacancy">Вакансії</a></li>
             <li><a href="<?=base_url();?>index.php/pages/page/public_info">Доступ до публічної інформації</a></li>

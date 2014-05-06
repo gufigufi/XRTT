@@ -2,50 +2,50 @@
     <ul id="bottom_menu">
         <li>
             <ul class="bm">
-                <li><a href="index.php">Головна</a></li>
-                <li><a href="map_sait.php">Kарта сайта</a></li>
-                <li><a href="contacts.php">Контакти</a></li>
-                <li><a href="telephone_directory.php">Телефонний довідник</a></li>
-                <li><a href="government_purchasing.php">Державні закупівлі</a></li>
-                <li><a href="public_info.php">Доступ до публічної інформації</a></li>
+                <li><a href="<?=base_url();?>index.php/pages/page/main">Головна</a></li>
+                <li><a href="<?=base_url();?>index.php/pages/page/map_sait">Kарта сайта</a></li>
+                <li><a href="<?=base_url();?>index.php/pages/page/contacts">Контакти</a></li>
+                <li><a href="<?=base_url();?>index.php/pages/page/telephone_directory">Телефонний довідник</a></li>
+                <li><a href="<?=base_url();?>index.php/pages/page/government_purchasing">Державні закупівлі</a></li>
+                <li><a href="<?=base_url();?>index.php/pages/page/public_info">Доступ до публічної інформації</a></li>
             </ul>
         </li>
         <li>
             <ul class="bm">
-                <li><a href="history.php">Історія технікуму</a></li>
-                <li><a href="structure.php">Структура технікуму</a></li>
-                <li><a href="management.php">Керівництво</a></li>
-                <li><a href="law_base.php">Правова основа</a></li>
-                <li><a href="department.php">Відділення</a></li>
-                <li><a href="subject_commission.php">Циклові комісії</a></li>
+                <li><a href="<?=base_url();?>index.php/pages/page/history">Історія технікуму</a></li>
+                <li><a href="<?=base_url();?>index.php/pages/page/structure">Структура технікуму</a></li>
+                <li><a href="<?=base_url();?>index.php/rukovodstvo">Керівництво</a></li>
+                <li><a href="<?=base_url();?>index.php/pages/page/law_base">Правова основа</a></li>
+                <li><a href="<?=base_url();?>index.php/pages/page/department">Відділення</a></li>
+                <li><a href="<?=base_url();?>index.php/pages/page/subject_commission">Циклові комісії</a></li>
             </ul>
         </li>
         <li>
             <ul class="bm">
-                <li><a href="law_students.php">Права та обов'язки студентів</a></li>
-                <li><a href="time_table.php">Розклад занять</a></li>
-                <li><a href="news.php">Події та новини технікуму</a></li>
-                <li><a href="sport_life.php">Спортивне життя</a></li>
-                <li><a href="students_control.php">Студентське самоврядування</a></li>
+                <li><a href="<?=base_url();?>index.php/pages/page/law_students">Права та обов'язки студентів</a></li>
+                <li><a href="<?=base_url();?>index.php/pages/page/time_table">Розклад занять</a></li>
+                <li><a href="<?=base_url();?>index.php/news">Події та новини технікуму</a></li>
+                <li><a href="<?=base_url();?>index.php/pages/page/sport_life">Спортивне життя</a></li>
+                <li><a href="<?=base_url();?>index.php/pages/page/students_control">Студентське самоврядування</a></li>
             </ul>
         </li>
         <li>
             <ul class="bm">
-                <li><a href="best_students.php">Кращі студенти</a></li>
-                <li><a href="registered_fellows.php">Іменні степендіати</a></li>
-                <li><a href="first_year_students.php">Наші першокурсники</a></li>
-                <li><a href="graduates.php">Наші випускники</a></li>
-                <li><a href="photo_gallery.php">Фотогалерея</a></li>
+                <li><a href="<?=base_url();?>index.php/best_students">Кращі студенти</a></li>
+                <li><a href="<?=base_url();?>index.php/best_students/registered_fellows">Іменні степендіати</a></li>
+                <li><a href="<?=base_url();?>index.php/pervokursnik">Наші першокурсники</a></li>
+                <li><a href="<?=base_url();?>index.php/vipusknik">Наші випускники</a></li>
+                <li><a href="<?=base_url();?>index.php/galery">Фотогалерея</a></li>
             </ul>
         </li>
         <li>
             <ul class="bm">
-                <li><a href="selection_committee.php">Приймальна комісія</a></li>
-                <li><a href="entrant.php">Вступна кампанія</a></li>
-                <li><a href="rules.php">Правила прийому</a></li>
-                <li><a href="specialities.php">Спеціальності</a></li>
-                <li><a href="open_day.php">Дні відкритих дверей</a></li>
-                <li><a href="access_course.php">Підготовчі курси</a></li>
+                <li><a href="<?=base_url();?>index.php/pages/page/selection_committee">Приймальна комісія</a></li>
+                <li><a href="<?=base_url();?>index.php/pages/page/entrant">Вступна кампанія</a></li>
+                <li><a href="<?=base_url();?>index.php/pages/page/rules">Правила прийому</a></li>
+                <li><a href="<?=base_url();?>index.php/pages/page/specialities">Спеціальності</a></li>
+                <li><a href="<?=base_url();?>index.php/pages/page/open_day">Дні відкритих дверей</a></li>
+                <li><a href="<?=base_url();?>index.php/pages/page/access_course">Підготовчі курси</a></li>
             </ul>
         </li>
     </ul>

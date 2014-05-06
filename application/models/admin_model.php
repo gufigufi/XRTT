@@ -106,4 +106,10 @@ class Admin_model extends CI_Model {
         $this->db->delete($page);
     }
 
+    function del_albom($id)
+    {
+        $this->db->query("DELETE FROM albom WHERE id = $id");
+        $this->db->query("DELETE FROM galery WHERE id_albom = $id");
+    }
+
 }

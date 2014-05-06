@@ -152,11 +152,6 @@ class Rules_model extends CI_Model {
             'field' => 'title',
             'label' => 'Назва альбому',
             'rules' => 'required'
-        ),
-        array(
-            'field' => 'title_en',
-            'label' => 'Назва каталогу',
-            'rules' => 'required|alpha_dash'
         )
     );
 

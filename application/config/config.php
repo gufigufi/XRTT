@@ -14,7 +14,8 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://test-hrtt.esy.es/';
+//$config['base_url']	= 'http://test-hrtt.esy.es/';
+$config['base_url']	= 'http://localhost/XRTT/';
 
 /*
 |--------------------------------------------------------------------------

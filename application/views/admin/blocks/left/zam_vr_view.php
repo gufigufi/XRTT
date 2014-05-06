@@ -2,35 +2,12 @@
     <div id="admin_menu" class="side_block">
         <h2>АДМІН МЕНЮ</h2>
         <ul>
-
-            <li>
-                <a href="#">Події та новини</a>
-                <ul>
-                    <li><a href="<?=base_url();?>index.php/admin/add/news">Додати</a></li>
-                    <li><a href="<?=base_url();?>index.php/admin/editlist/news">Редагувати</a></li>
-                    <li><a href="<?=base_url();?>index.php/admin/del/news">Видалити</a></li>
-                </ul>
-            </li>
-
-            <li>
-                <a href="<?=base_url();?>index.php/admin/editlist/page">Редагування сторінок</a>
-            </li>
-
-            <li>
-                <a href="#">Керівництво</a>
-                <ul>
-                    <li><a href="<?=base_url();?>index.php/admin/add/rukovodstvo">Додати</a></li>
-                    <li><a href="<?=base_url();?>index.php/admin/editlist/rukovodstvo">Редагувати</a></li>
-                    <li><a href="<?=base_url();?>index.php/admin/del/rukovodstvo">Видалити</a></li>
-                </ul>
-            </li>
-
             <li>
                 <a href="#">Галерея</a>
                 <ul>
                     <li><a href="<?=base_url();?>index.php/admin/add_albom/albom">Додати альбом</a></li>
                     <li><a href="<?=base_url();?>index.php/admin/editlist/albom">Редагувати альбом</a></li>
-                    <li><a href="<?=base_url();?>index.php/admin/del_albom">Видалити альбом</a></li>
+                    <li><a href="#">Видалити альбом</a></li>
                 </ul>
             </li>
 
@@ -67,19 +44,6 @@
                     <li><a href="<?=base_url();?>index.php/admin/add/vipusknik">Додати групу</a></li>
                     <li><a href="<?=base_url();?>index.php/admin/editlist/vipusknik">Редагувати групи</a></li>
                     <li><a href="<?=base_url();?>index.php/admin/del/vipusknik">Видалити групу</a></li>
-                </ul>
-            </li>
-
-            <li>
-				<a href="<?=base_url();?>index.php/admin/edit/page/19">Зміни у розкладі</a>
-			</li>
-              
-            <li>
-                <a href="#">Адміністратори</a>
-                <ul>
-                    <li><a href="<?=base_url();?>index.php/admin/register">Додати адміністратора</a></li>
-                    <li><a href="<?=base_url();?>index.php/admin/editlist/users">Редагувати адміністратора</a></li>
-                    <li><a href="<?=base_url();?>index.php/admin/del/users">Видалити адміністратора</a></li>
                 </ul>
             </li>
         </ul>

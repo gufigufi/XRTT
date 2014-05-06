@@ -3,10 +3,7 @@
         <h2>АДМІН МЕНЮ</h2>
         <ul>
             <li>
-                <a href="">Розклада занять</a>
-                <ul>
-                    <li><a href="#">Зміни у розкладі</a></li>
-                </ul>
+                <a href="<?=base_url();?>index.php/admin/edit/page/19">Зміни у розкладі</a>
             </li>
         </ul>
     </div>

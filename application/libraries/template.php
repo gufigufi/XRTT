@@ -37,7 +37,7 @@ class Template {
         }
         elseif($data['user_info']['status'] == 6)
         {
-            $CI->load->view('admin/blocks/left/saltanova_view', $data);
+            $CI->load->view('admin/blocks/left/zam_vr_view', $data);
         }
         elseif($data['user_info']['status'] == 7)
         {

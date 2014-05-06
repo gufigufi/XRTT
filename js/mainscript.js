@@ -240,7 +240,7 @@ $(".tabsholder").tytabs({
 		img_src = [];
 	});
 
-    //TIME TABLE ---- DATE & TIME
+    /*TIME TABLE ---- DATE & TIME
     function Today(){
         var current_date = new Date();
         var day = current_date.getDate();
@@ -277,6 +277,8 @@ $(".tabsholder").tytabs({
         alert(today);
         $('#change_table_date').append('<span>' + today + '</span>');
     });
+
+    */
 
 //ADMIN MENU -------------------------------------------------------------------------------
 

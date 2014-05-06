@@ -47,11 +47,10 @@
 
 $active_group = 'default';
 $active_record = TRUE;
-
-$db['default']['hostname'] = 'mysql.hostinger.com.ua';
-$db['default']['username'] = 'u967380007_xrtt';
-$db['default']['password'] = 'u967380007_xrtt';
-$db['default']['database'] = 'u967380007_xrtt';
+$db['default']['hostname'] = 'localhost';
+$db['default']['username'] = 'root';
+$db['default']['password'] = '19952010';
+$db['default']['database'] = 'xrtt';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
