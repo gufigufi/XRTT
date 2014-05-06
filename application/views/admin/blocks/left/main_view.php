@@ -29,7 +29,8 @@
                 <a href="#">Галерея</a>
                 <ul>
                     <li><a href="<?=base_url();?>index.php/admin/add_albom/albom">Додати альбом</a></li>
-                    <li><a href="<?=base_url();?>index.php/admin/editlist/albom">Редагувати альбом</a></li>
+                    <li><a href="<?=base_url();?>index.php/admin/editlist/albom">Додати фотографії в альбом</a></li>
+                    <li><a href="<?=base_url();?>index.php/admin/editlist/albomDel">Видалити фото із альбому</a></li>
                     <li><a href="<?=base_url();?>index.php/admin/del_albom">Видалити альбом</a></li>
                 </ul>
             </li>

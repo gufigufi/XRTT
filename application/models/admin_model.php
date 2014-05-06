@@ -73,6 +73,13 @@ class Admin_model extends CI_Model {
         return $query->result_array();
     }
 
+    function get_editlist_photo($id)
+    {
+        $this->db->select('albom.title_en, galery.id , galery.img')->from('galery')->join('u967380007_xrtt.albom', 'galery.id_albom=albom.id','lheft')->where('galery.id_albom',$id);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
 
     function get_info($page,$id)
     {

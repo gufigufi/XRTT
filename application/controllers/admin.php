@@ -274,6 +274,13 @@ class Admin extends CI_Controller {
         {
 
             $data['page'] = $page;
+            if($page == 'albomDel')
+            {
+                $data['del_photo'] = TRUE;
+                $page = 'albom';
+            }
+            else
+                $data['del_photo'] = FALSE;
             if($data['user_info']['status'] != 1 && $page == 'page')
                 $data['edit'] = $this->admin_model->get_editlist($page,$data['user_info']['status']);
             elseif($page == 'users')
@@ -281,8 +288,7 @@ class Admin extends CI_Controller {
             else
                 $data['edit'] = $this->admin_model->get_editlist_main($page);
 
-                $name = 'edit/editlist_'.$page;
-
+            $name = 'edit/editlist_'.$page;
 
             $this->template->admin_view($data,$name);
         }
@@ -524,6 +530,40 @@ class Admin extends CI_Controller {
         }
     }
 
+    function del_photo($id='')
+    {
+        $this->load->model('login_model');
+        $data['page_info'] = $this->login_model->get_info('albom');
+        $data['user'] = $this->session->userdata('user');
+        $data['user_info']['status'] = $this->session->userdata('status');
+        $data['info'] = '';
+        if(!empty($data['user']))
+        {
+            $data['del'] = $this->admin_model->get_editlist_photo($id);
+            if($this->input->post('del_hid') == 1)
+            {
+                $id = $this->input->post('id');
+                $title_en = $this->input->post('title_en');
+                $img = $this->input->post('img');
+                unlink('./images/galery/'.$title_en.'/'.$img);
+                $this->admin_model->del('galery',$id);
+
+                $data['info'] = 'Операція пройшла успішно';
+                $name = 'info';
+                $this->template->admin_view($data,$name);
+            }
+            else
+            {
+                $name = 'del/photo';
+                $this->template->admin_view($data,$name);
+            }
+        }
+        else
+        {
+            redirect(base_url().'index.php/admin');
+        }
+    }
+
     function edit_admin($id='')
     {
         $this->load->model('login_model');
@@ -621,7 +661,6 @@ class Admin extends CI_Controller {
                     $data['info'] = 'Операція пройшла успішно';
                     $name = 'info';
                     $this->template->admin_view($data,$name);
-                    //redirect(base_url().'index.php/admin');
                 }
                 else
                 {

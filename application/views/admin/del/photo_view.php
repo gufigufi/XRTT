@@ -6,12 +6,14 @@
         <h3>Оберіть потрібну фотографію зі списку</h3>
         <ul>
             <? foreach($del as $item):?>
-                <li><p><img class="photo_upload" alt="<?=$item['fio'];?>" src="<?=base_url();?>images/reg_fel/<?=$item['img'];?>" >
-                        <strong>-</strong> <em><?=$item['fio'];?></em>
+                <li><p><img class="photo_upload" alt="<?=$item['img'];?>" src="<?=base_url();?>images/galery/<?=$item['title_en'];?>/<?=$item['img'];?>" >
+                        <strong>-</strong> <em><?=$item['img'];?></em>
                     </p>
                     <form id="<?=$item['id'];?>" action="" method="post">
                         <input name="del" type="submit" value="Видалити">
                         <input type="hidden" name="id" value="<?=$item['id'];?>">
+                        <input type="hidden" name="title_en" value="<?=$item['title_en'];?>">
+                        <input type="hidden" name="img" value="<?=$item['img'];?>">
                         <input type="hidden" name="del_hid" value="1">
                     </form>
                 </li>

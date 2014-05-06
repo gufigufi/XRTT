@@ -1,8 +1,7 @@
 <div id="content">
     <h2 id="content_name">Фотогалерея технікуму</h2>
+    <div class="all_galleries" onmousedown="return false" onselectstart="return false">
         <?php foreach($albom as $item1):?>
-            <div class="all_galleries" onmousedown="return false" onselectstart="return false">
-
                 <h2><?=$item1['title'];?></h2> <!-- Заголовок Фотогалереи -->
 
                 <div class="gallery"> <!-- контейнер, в котором будет карусель -->
@@ -27,10 +26,13 @@
                     </div>
                 </div>
         <?endforeach?>
+    </div>
 
         <?=$this->pagination->create_links();?>
 
-         </div>
+</div>
+
+
 
 
 
