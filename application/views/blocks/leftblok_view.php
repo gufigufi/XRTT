@@ -2,7 +2,7 @@
         <h2>ПОДІЇ ТА НОВИНИ</h2>
         <marquee id="vertical_scrol" behavior="scroll" scrollAmount="2" direction="up" onmouseover='this.stop()' onmouseout='this.start()'>
             <?php foreach($news_left as $item):?>
-                <p><?=$item['title'];?></p>
+                <p><a href="<?=base_url();?>index.php/news"><?=$item['title'];?></a></p>
             <?endforeach;?>
         </marquee>
         <p id="sbb"><a href="<?=base_url();?>index.php/news">всі новини та події технікуму</a></p>
@@ -38,7 +38,7 @@
     </div>
     <div id="dpi" class="side_block">
         <h2>НОВИНИ ДПІ</h2>
-        <p><a href="dpi.php">ДПІ у Київському районі м.Харкова Харківської обласної<br />Державної податкової служби</a></p>
+        <p><a href="<?=base_url();?>index.php/pages/page/dpi">ДПІ у Київському районі м.Харкова Харківської обласної<br />Державної податкової служби</a></p>
     </div>
     <div id="statistics" class="side_block">
         <h2>СТАТИСТИКА</h2>

@@ -6,7 +6,7 @@
         <h3>Оберіть потрібну новину зі списку</h3>
         <ul>
             <? foreach($del as $item):?>
-                <li><p><em><?echo $item['title'];?></em> - <span><?=$item['date'];?></span></p>
+                <li><p><em><?echo $item['title'];?></em> - <span><?=$item['data_date'];?></span></p>
                     <form id="<?=$item['id'];?>" action="" method="post">
                         <input name="del" type="submit" value="Видалити">
                         <input type="hidden" name="id" value="<?=$item['id'];?>">

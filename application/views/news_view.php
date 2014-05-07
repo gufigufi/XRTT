@@ -9,7 +9,7 @@
                     <h3><?=$item["title"] ?></h3>
                     <article class="nShort"><?=$item["text"] ?></article>
                     <article class="nFull"><?=$item["text"] ?><div style="overflow:hidden"></div></article>
-                    <p class="date_time"><?=$item["date"] ?></p>
+                    <p class="date_time"><?=$item["data_date"] ?></p>
                 </section>
             </li>
          <?endforeach?>

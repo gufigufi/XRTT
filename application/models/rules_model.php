@@ -177,7 +177,7 @@ class Rules_model extends CI_Model {
             'rules' => 'required'
         ),
         array(
-            'field' => 'date',
+            'field' => 'data_date',
             'label' => 'Рік вступу',
             'rules' => 'required'
         ),
@@ -210,7 +210,7 @@ class Rules_model extends CI_Model {
             'rules' => 'required'
         ),
         array(
-            'field' => 'date',
+            'field' => 'data_date',
             'label' => 'Рік випуску',
             'rules' => 'required'
         ),

@@ -6,7 +6,7 @@
 		<h3>Оберіть потрібну новину зі списку </h3>
 		<ul class="edit_list">
             <? foreach($edit as $item):?>
-                <li><a href="<?=base_url();?>index.php/admin/edit/<?=$page;?>/<?=$item['id'];?>"><?=$item['title'];?> - <span><?=$item['date'];?></span></a></li>
+                <li><a href="<?=base_url();?>index.php/admin/edit/<?=$page;?>/<?=$item['id'];?>"><?=$item['title'];?> - <span><?=$item['data_date'];?></span></a></li>
             <?endforeach;?>
 		</ul>
 	</div>

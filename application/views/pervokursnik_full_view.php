@@ -5,7 +5,7 @@
         <h3>Спеціальність: <span><?=$pervokursnik['spetsialnost'];?></span></h3>
         <h3>Группа: <span><?=$pervokursnik['group'];?></span></h3>
         <h3>Класний керівник: <span><?=$pervokursnik['kl_rukovod'];?></span></h3>
-        <h3>Рік вступу: <span><?=$pervokursnik['date'];?></span></h3>
+        <h3>Рік вступу: <span><?=$pervokursnik['data_date'];?></span></h3>
         <h4>Фото:</h4>
         <p><img src="<?=base_url();?>images/first_course/<?=$pervokursnik['img'];?>" alt="<?=$pervokursnik['group'];?>"></p>
         <h4>Перечінь студентів:</h4>

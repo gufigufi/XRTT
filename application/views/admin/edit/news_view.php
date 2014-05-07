@@ -18,7 +18,7 @@
 
 			<p>
                 <?$d = time() + (10800);?>
-                <input type="hidden" value="<?=date('Y-m-d H:i:s',$d);?>" name="date"/>
+                <input type="hidden" value="<?=date('Y-m-d H:i:s',$d);?>" name="data_date"/>
 				<input type="submit" value="Редагувати" name="edit">
 			</p>
 			

@@ -14,6 +14,7 @@ class Pages extends CI_Controller {
         $data['pages_info'] = $this->pages_model->get_pages_info($title);
         $data['user'] = $this->session->userdata('user');
         $data['user_info']['status'] = $this->session->userdata('status');
+        $data['page'] = $title;
         if(empty($data['pages_info']))
             redirect(base_url());
         $name = 'pages';

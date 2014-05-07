@@ -53,7 +53,7 @@ class Admin_model extends CI_Model {
 
     function get_editlist_main($page)
     {
-        $this->db->order_by('id');
+        $this->db->order_by('id','desc');
         $query = $this->db->get($page);
         return $query->result_array();
     }

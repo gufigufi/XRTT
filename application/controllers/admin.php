@@ -128,7 +128,7 @@ class Admin extends CI_Controller {
                 $add['zasluga'] = $this->input->post('zasluga');
 
                 $add['kl_rukovod'] = $this->input->post('kl_rukovod');
-                $add['date'] = $this->input->post('date');
+                $add['data_date'] = $this->input->post('data_date');
                 $add['spisok'] = $this->input->post('spisok');
 
                 $add['title'] = $this->input->post('title');
@@ -145,7 +145,7 @@ class Admin extends CI_Controller {
 
 
 
-                if(isset($add['img']))
+                if(isset($add['img']) || $page == 'news')
                 {
                     $this->admin_model->add($page,$add);
                     $data['info'] = 'Операція пройшла успішно.';
@@ -376,7 +376,7 @@ class Admin extends CI_Controller {
 
                     if($page == 'best_students')
                         unlink('./images/best_students/'.$data['pages_info']['img']);
-                    
+
                     if($page == 'registered_fellows')
                         unlink('./images/reg_fel/'.$data['pages_info']['img']);
 
@@ -411,7 +411,7 @@ class Admin extends CI_Controller {
                 $edit['status'] = $this->input->post('status');
 
                 $edit['kl_rukovod'] = $this->input->post('kl_rukovod');
-                $edit['date'] = $this->input->post('date');
+                $edit['data_date'] = $this->input->post('data_date');
                 $edit['spisok'] = $this->input->post('spisok');
 
                 $edit['title'] = $this->input->post('title');
@@ -424,10 +424,10 @@ class Admin extends CI_Controller {
                     }
                 }
 
-                    $this->admin_model->edit($page,$edit,$id);
-                    $data['info'] = 'Операція пройшла успішно';
-                    $name = 'info';
-                    $this->template->admin_view($data,$name);
+                $this->admin_model->edit($page,$edit,$id);
+                $data['info'] = 'Операція пройшла успішно';
+                $name = 'info';
+                $this->template->admin_view($data,$name);
             }
             else
             {

@@ -5,7 +5,7 @@
         <h3>Спеціальність: <span><?=$vipusknik['spetsialnost'];?></span></h3>
         <h3>Группа: <span><?=$vipusknik['group'];?></span></h3>
         <h3>Класний керівник: <span><?=$vipusknik['kl_rukovod'];?></span></h3>
-        <h3>Рік вступу: <span><?=$vipusknik['date'];?></span></h3>
+        <h3>Рік вступу: <span><?=$vipusknik['data_date'];?></span></h3>
         <h4>Фото:</h4>
         <p><img src="<?=base_url();?>images/vipusknik/<?=$vipusknik['img'];?>" alt="<?=$vipusknik['group'];?>"></p>
         <h4>Перечінь студентів:</h4>

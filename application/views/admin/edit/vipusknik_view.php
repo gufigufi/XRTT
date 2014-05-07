@@ -38,9 +38,9 @@
 
             <p>
                 <label for="date">Рік випуску:</label>
-                <input type="number" name="date" id="date" value="<?=$pages_info['date'];?>">
+                <input type="number" name="data_date" id="date" value="<?=$pages_info['date'];?>">
             </p>
-            <section class="error"><?=form_error('date');?></section>
+            <section class="error"><?=form_error('data_date');?></section>
 
             <p>
                 <label for="spisok"><strong>Перечінь студентів:</strong></label>
