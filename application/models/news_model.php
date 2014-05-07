@@ -13,7 +13,7 @@ class News_model extends CI_Model {
     {
         //$query = $this->db->get('news',$num, $offset);
         if(!$offset) $offset = 0;
-        $query = $this->db->query("SELECT id, text, title, DATE_FORMAT(date,'%d.%m.%Y %h:%i:%s') AS date FROM news ORDER BY date DESC  LIMIT $offset,$num");
+        $query = $this->db->query("SELECT id, text, title, DATE_FORMAT(date,'%d.%m.%Y %H:%i:%s') AS date FROM news ORDER BY date DESC  LIMIT $offset,$num");
         return $query->result_array();
     }
 

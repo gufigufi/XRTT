@@ -17,7 +17,8 @@
 			<section class="error"><?=form_error('text');?></section>
 
 			<p>
-                <input type="hidden" value="<?=date('Y-m-d H:i:s')?>" name="date"/>
+                <?$d = time() + (10800);?>
+                <input type="hidden" value="<?=date('Y-m-d H:i:s',$d);?>" name="date"/>
 				<input type="submit" value="Редагувати" name="edit">
 			</p>
 			

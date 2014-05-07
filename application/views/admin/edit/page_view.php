@@ -8,7 +8,8 @@
                 <textarea name="text" rows="50" id="info"><?=$pages_info['text'];?></textarea>
             </p>
 			<section class="error"><?=form_error('info');?></section>
-			
+            <?$d = time() + (10800);?>
+            <input type="hidden" name="date"  value="<?=date('Y-m-d H:i:s',$d);?>"/>
 			<p>
 				<input type="submit" value="Редагувати" name="edit">
 			</p>
